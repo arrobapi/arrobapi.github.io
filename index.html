@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>arrobaPi // Laboratorio de Proyectos y Prácticas</title>
+    <title>Academia arrobaPi - Ecosistema de Proyectos</title>
+    <!-- Usamos tipografía profesional, limpia y altamente legible -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Colores inspirados en la identidad de arrobaPi */
-            --primary-color: #e63946; /* El rojo/granate vibrante corporativo */
-            --dark-bg: #0f172a;      /* Fondo oscuro tecnológico */
-            --card-bg: #1e293b;      /* Fondo de tarjetas de proyectos */
-            --text-main: #f8fafc;    /* Texto principal */
-            --text-muted: #94a3b8;   /* Texto secundario */
-            --accent-glow: rgba(230, 57, 70, 0.15);
+            /* Colores oficiales inspirados en la estética de tu web principal */
+            --primary-color: #d9251e; /* El rojo corporativo de arrobaPi */
+            --primary-hover: #b81d18;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --border-color: #e9ecef;
         }
 
         * {
@@ -26,312 +28,386 @@
         }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-main);
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--white);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* Banner de aviso para aclarar la naturaleza del sitio sin romper la estética */
-        .site-disclaimer {
-            background: linear-gradient(90deg, #b91c1c, var(--primary-color));
-            color: #ffffff;
-            text-align: center;
-            padding: 8px 15px;
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+        }
+
+        /* Barra superior informativa: delimita el propósito del espacio con total claridad */
+        .sub-navigation-notice {
+            background-color: #343a40;
+            color: var(--white);
             font-size: 0.85rem;
+            text-align: center;
+            padding: 10px 15px;
             font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            font-family: 'Space Mono', monospace;
         }
 
-        .site-disclaimer a {
-            color: #fff;
-            text-decoration: underline;
+        .sub-navigation-notice a {
+            color: #ffc107;
+            text-decoration: none;
             margin-left: 5px;
+            transition: text-decoration 0.2s;
         }
 
-        /* Navegación / Header */
+        .sub-navigation-notice a:hover {
+            text-decoration: underline;
+        }
+
+        /* Cabecera corporativa idéntica al estilo de la academia */
         header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .header-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo-area {
+        .logo-block {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
+            text-decoration: none;
         }
 
-        /* Intentará cargar el logo oficial directamente si la ruta es accesible */
         .logo-img {
-            height: 45px;
+            height: 50px;
             width: auto;
-            border-radius: 4px;
         }
 
-        .logo-text {
-            font-size: 1.5rem;
+        .logo-title {
+            font-size: 1.6rem;
             font-weight: 700;
-            letter-spacing: -1px;
+            color: var(--text-dark);
         }
 
-        .logo-text span {
+        .logo-title span {
             color: var(--primary-color);
         }
 
-        /* Sección Hero (Llamativa y Tecnológica) */
+        .main-web-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+
+        .main-web-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Hero / Sección de Bienvenida */
         .hero {
-            max-width: 1200px;
-            margin: 40px auto 60px auto;
-            padding: 0 20px;
+            background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(233, 236, 239, 0.5) 100%);
+            padding: 60px 20px;
             text-align: center;
-            position: relative;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            background: var(--primary-color);
-            filter: blur(120px);
-            opacity: 0.2;
-            z-index: -1;
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .badge {
+        .badge-repo {
             display: inline-block;
-            font-family: 'Space Mono', monospace;
-            background-color: rgba(230, 57, 70, 0.1);
-            border: 1px solid var(--primary-color);
+            background-color: rgba(219, 37, 30, 0.1);
             color: var(--primary-color);
-            padding: 4px 12px;
-            border-radius: 20px;
+            padding: 5px 15px;
+            border-radius: 50px;
             font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            line-height: 1.2;
+            font-size: 2.5rem;
             margin-bottom: 20px;
+            line-height: 1.3;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 30px auto;
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 0;
         }
 
-        /* Grid de Proyectos / Repositorios */
-        .projects-section {
+        /* Sección Publicitaria de la Academia */
+        .academy-promo {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px 80px 20px;
+            padding: 60px 20px;
         }
 
-        .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::after {
-            content: '';
-            flex-grow: 1;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(148, 163, 184, 0.3), transparent);
-        }
-
-        .projects-grid {
+        .promo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 25px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
         }
 
-        /* Estilo de Tarjeta de Proyecto */
-        .project-card {
-            background-color: var(--card-bg);
-            border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s ease;
+        @media (max-width: 768px) {
+            .promo-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .hero h1 { font-size: 2rem; }
+        }
+
+        .promo-text h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
             position: relative;
-            overflow: hidden;
+            padding-bottom: 10px;
         }
 
-        .project-card::before {
+        .promo-text h2::after {
             content: '';
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
-            width: 4px;
-            height: 100%;
+            width: 60px;
+            height: 3px;
             background-color: var(--primary-color);
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: #475569;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 0 15px var(--accent-glow);
+        .promo-text p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
         }
 
-        .project-card:hover::before {
-            opacity: 1;
+        .features-list {
+            list-style: none;
         }
 
-        .project-meta {
+        .features-list li {
+            margin-bottom: 12px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .promo-card {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.01);
+        }
+
+        .promo-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .course-tag {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Sección Estado / Próximamente (Marcador de posición elegante) */
+        .projects-placeholder-section {
+            background-color: var(--bg-light);
+            border-top: 1px solid var(--border-color);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .placeholder-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border: 2px dashed #ccd1d9;
+            border-radius: 12px;
+            padding: 50px 30px;
+        }
+
+        .placeholder-icon {
+            font-size: 3.5rem;
+            color: #aab2bd;
             margin-bottom: 15px;
         }
 
-        .project-tag {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            background-color: #334155;
-            color: #e2e8f0;
-            padding: 2px 8px;
-            border-radius: 4px;
+        .placeholder-box h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
         }
 
-        .project-date {
-            font-size: 0.8rem;
-            color: var(--text-muted);
+        .placeholder-box p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            max-width: 550px;
+            margin: 0 auto;
         }
 
-        .project-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        .project-card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .project-link:hover {
-            color: #f87171;
-        }
-
-        /* Footer */
+        /* Pie de página (Footer) con datos de contacto corporativos */
         footer {
-            border-top: 1px solid #334155;
+            background-color: #212529;
+            color: #e9ecef;
             padding: 40px 20px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            background-color: #0b111e;
+            font-size: 0.95rem;
         }
 
-        footer p a {
-            color: var(--primary-color);
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        @media (max-width: 576px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .footer-info p {
+            margin-bottom: 8px;
+        }
+
+        .footer-info a {
+            color: #ffc107;
             text-decoration: none;
         }
 
-        /* Responsivo */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .projects-grid { grid-template-columns: 1fr; }
+        .footer-copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #343a40;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #adb5bd;
+            width: 100%;
         }
     </style>
 </head>
 <body>
 
-    <div class="site-disclaimer">
-        ⚠️ Entorno de Pruebas y Despliegue Técnico. Para la web oficial visita 
+    <!-- Aviso institucional en la cabecera -->
+    <div class="sub-navigation-notice">
+        📍 Entorno de Prácticas Académicas y Desarrollo. Para acceder a la web principal visita: 
         <a href="https://arrobapi.com" target="_blank">arrobapi.com</a>
     </div>
 
     <header>
-        <div class="logo-area">
-            <img src="https://arrobapi.com/pluginfile.php/1/theme_adaptable/logo/1726210815/logo_arrobapi.png" alt="arrobaPi" class="logo-img" onerror="this.style.display='none'">
-            <div class="logo-text">arroba<span>Pi</span></div>
+        <div class="header-container">
+            <a href="https://arrobapi.com" class="logo-block" target="_blank">
+                <!-- Carga el logotipo de la academia directamente desde tu servidor institucional -->
+                <img src="https://arrobapi.com/pluginfile.php/1/theme_adaptable/logo/1726210815/logo_arrobapi.png" alt="Academia arrobaPi" class="logo-img" onerror="this.style.display='none'">
+                <div class="logo-title">Academia arroba<span>Pi</span></div>
+            </a>
+            <a href="https://arrobapi.com" class="main-web-btn" target="_blank">Volver a la Web Principal</a>
         </div>
     </header>
 
     <main>
+        <!-- Hero: Explicación de la iniciativa -->
         <section class="hero">
-            <span class="badge">// sandbox & deploy</span>
-            <h1>Proyectos del Alumnado</h1>
-            <p>Un espacio interactivo dedicado al despliegue, pruebas de código y exhibición de proyectos web creados por los estudiantes de nuestra academia.</p>
+            <div class="hero-container">
+                <span class="badge-repo">Área de Innovación Tecnológica</span>
+                <h1>Ecosistema de Código y Proyectos</h1>
+                <p>Bienvenido al nuevo espacio interactivo de la Academia arrobaPi. Esta página ha sido diseñada como un laboratorio técnico secundario para el despliegue real, testeo y exhibición de las aplicaciones creadas por nuestros estudiantes.</p>
+            </div>
         </section>
 
-        <section class="projects-section">
-            <h2 class="section-title">Últimos Despliegues</h2>
-            
-            <div class="projects-grid">
+        <!-- Bloque Publicitario: Valores e Información de la Academia -->
+        <section class="academy-promo">
+            <div class="promo-grid">
+                <div class="promo-text">
+                    <h2>Formación práctica orientada al futuro</h2>
+                    <p>En la <strong>Academia arrobaPi</strong> apostamos de manera decidida por un aprendizaje interactivo y real. Con la incorporación de esta nueva iniciativa, el alumnado de desarrollo y diseño web dispone de un entorno controlado en la red donde validar sus códigos, realizar pruebas técnicas y subir sus creaciones desde el primer día de clase.</p>
+                    
+                    <ul class="features-list">
+                        <li>Clases individuales y grupos muy reducidos (hasta 6 alumnos).</li>
+                        <li>Seguimiento totalmente personalizado según el nivel del estudiante.</li>
+                        <li><strong>MATRÍCULA GRATUITA</strong> en todas nuestras modalidades.</li>
+                    </ul>
+                </div>
                 
-                <div class="project-card">
-                    <div class="project-meta">
-                        <span class="project-tag">HTML5 / CSS3</span>
-                        <span class="project-date">Junio 2026</span>
+                <div class="promo-card">
+                    <h3>Niveles y Asignaturas en arrobaPi</h3>
+                    <p style="margin-bottom: 15px; color: var(--text-light);">Impartimos clases de apoyo presenciales y online para casi todos los niveles académicos:</p>
+                    <div class="tag-container">
+                        <span class="course-tag">E.S.O. (Matemáticas, Física y Química)</span>
+                        <span class="course-tag">Bachillerato (Matemáticas I, II y Ciencias Sociales)</span>
+                        <span class="course-tag">Universidad (Cálculo, Álgebra, Estadística)</span>
+                        <span class="course-tag">Informática (Desde cero y todas las edades)</span>
+                        <span class="course-tag">Programación y Diseño Web</span>
+                        <span class="course-tag">Acceso a Ciclos Formativos</span>
                     </div>
-                    <h3>Mi Primera Landing Page</h3>
-                    <p>Proyecto inicial de maquetación estática con diseño responsivo y estructuración de contenido semántico.</p>
-                    <a href="./proyecto-alumno-1/" class="project-link">Ver proyecto en vivo →</a>
+                    <p style="font-size: 0.95rem; font-weight: 600; text-align: center;">¿Quieres unirte a nuestras aulas? <a href="https://arrobapi.com" target="_blank" style="color: var(--primary-color);">Contacta con nosotros</a></p>
                 </div>
+            </div>
+        </section>
 
-                <div class="project-card">
-                    <div class="project-meta">
-                        <span class="project-tag">JavaScript / API</span>
-                        <span class="project-date">Mayo 2026</span>
-                    </div>
-                    <h3>Aplicación del Tiempo</h3>
-                    <p>Desarrollo funcional que conecta con una API meteorológica para mostrar el pronóstico actual en tiempo real.</p>
-                    <a href="./proyecto-alumno-2/" class="project-link">Ver proyecto en vivo →</a>
-                </div>
-
-                <div class="project-card" style="border-style: dashed;">
-                    <div class="project-meta">
-                        <span class="project-tag">Entorno</span>
-                        <span class="project-date">Pruebas</span>
-                    </div>
-                    <h3>Repositorio Base</h3>
-                    <p>Espacio asignado para la realización de test de carga, scripts automatizados y plantillas estructurales.</p>
-                    <a href="#" class="project-link">Explorar sandbox →</a>
-                </div>
-
+        <!-- Sección de Estado: Próximamente sin enlaces activos -->
+        <section class="projects-placeholder-section">
+            <div class="placeholder-box">
+                <div class="placeholder-icon">💻</div>
+                <h3>Galería de Proyectos en Preparación</h3>
+                <p>Nuestros grupos de estudiantes e informática avanzada se encuentran actualmente desarrollando sus primeras maquetaciones estructurales y lógicas de programación. Muy pronto, este espacio albergará sus despliegues de prueba en vivo.</p>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Academia arrobaPi — Aula de Informática y Desarrollo Técnico.</p>
-        <p style="margin-top: 10px; font-size: 0.8rem;">Este sitio web aloja exclusivamente código en fase de desarrollo o académico.</p>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p><strong>Academia arrobaPi</strong></p>
+                <p>Clases individuales y grupos reducidos presenciales u online.</p>
+            </div>
+            <div class="footer-info" style="text-align: right;">
+                <p>📧 <a href="mailto:academia@arrobapi.com">academia@arrobapi.com</a></p>
+                <p>📞 +34 988 605 547</p>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2005 - 2026 Academia arrobaPi. Todos los derechos reservados. Nodo secundario de despliegue académico.
+            </div>
+        </div>
     </footer>
 
 </body>
