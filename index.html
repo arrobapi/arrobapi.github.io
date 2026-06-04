@@ -185,7 +185,11 @@
         /* Seccion GitHub */
         .github-section {
             padding: 80px 0;
-            background-color: var(--light-bg);
+            background-image: linear-gradient(rgba(40, 50, 59, 0.92), rgba(40, 50, 59, 0.92)), url('bg-laptop.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
             text-align: center;
         }
 
@@ -198,7 +202,7 @@
 
         .section-title {
             font-size: 2.4rem;
-            color: var(--dark);
+            color: var(--white);
             font-weight: 700;
             margin-bottom: 20px;
         }
@@ -207,7 +211,7 @@
             max-width: 800px;
             margin: 0 auto 50px auto;
             font-size: 1.15rem;
-            color: var(--text);
+            color: #b2becb;
             line-height: 1.7;
         }
 
@@ -219,17 +223,21 @@
         }
 
         .card {
-            background-color: var(--white);
+            background-color: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 40px 30px;
             border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
             transition: var(--transition);
             text-align: center;
         }
 
         .card:hover {
+            background-color: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
         }
 
         .card-icon {
@@ -239,15 +247,19 @@
             align-items: center;
         }
 
+        .card-icon svg {
+            color: #00ff88 !important;
+        }
+
         .card-title {
             font-size: 1.4rem;
-            color: var(--dark);
+            color: var(--white);
             font-weight: 600;
             margin-bottom: 15px;
         }
 
         .card-desc {
-            color: var(--text);
+            color: #d1d9e0;
             font-size: 0.95rem;
             line-height: 1.6;
         }
@@ -256,7 +268,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background-color: var(--dark);
+            background-color: var(--primary);
             color: var(--white);
             padding: 14px 35px;
             font-size: 1.1rem;
@@ -266,9 +278,9 @@
         }
 
         .explore-btn:hover {
-            background-color: #1c2329;
+            background-color: var(--primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 5px 15px rgba(10, 111, 95, 0.3);
         }
 
         .explore-btn svg {
